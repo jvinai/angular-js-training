@@ -1,16 +1,7 @@
-angular.module("myApp").controller('myCtrl', function($scope, thoughtService) {
-	thoughtService.getThoughts().then(
-		function success(newThoughtList) {
-			$scope.thoughts = newThoughtList.data;
-		}
-	);
+angular.module("myApp").controller('myCtrl', function($scope) {
+	$scope.thoughts = [];
 
 	this.doSubmit = function() {
-		thoughtService.postThought($scope.newThought).then(
-			function success(newThoughtList) {
-				$scope.thoughts = newThoughtList.data;
-				$scope.newThought = "";
-			}
-		);
+		
 	}
 });
