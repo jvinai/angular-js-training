@@ -1,14 +1,23 @@
-angular.module("myApp").controller('myCtrl', function($scope, thoughtService) {
-	thoughtService.getThoughts().then(
-		function success(newThoughtList) {
-			$scope.thoughts = newThoughtList.data;
+angular.module("myApp").controller('myCtrl', function($scope, $http) {
+	$http({
+        url: '/api',
+        method: 'GET'
+      }).then(
+		function success(xhr) {
+			$scope.thoughts = xhr.data;
 		}
 	);
 
 	this.doSubmit = function() {
-		thoughtService.postThought($scope.newThought).then(
-			function success(newThoughtList) {
-				$scope.thoughts = newThoughtList.data;
+		$http({
+		    url: '/api/thought',
+		    method: 'POST',
+		    data: {
+		      thought: $scope.newThought
+		    }
+	  	}).then(
+			function success(xhr) {
+				$scope.thoughts = xhr.data;
 				$scope.newThought = "";
 			}
 		);
