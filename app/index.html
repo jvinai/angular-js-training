@@ -5,17 +5,18 @@
     	<link rel="stylesheet" href="styles/main.css">
 
 		<script src="angular.js"></script>
+		<script src="app.js"></script>
 	</head>
 
-	<body>
+	<body ng-app="myApp">
 		<div class="text-center">
 			<div class="jumbotron">
-			  <p><input size="60" class="text-center" maxlength="140" type="text"></p>
+			  <p><input size="60" class="text-center" maxlength="140" type="text" ng-model="name"></p>
 			  <p><a class="btn btn-primary btn-lg" role="button">Submit</a></p>
 			</div>
 		</div>
 		<div class="container text-center">
-			<div class="well well-sm"></div>
+			<div class="well well-sm">Hello {{name}}</div>	
 		</div>
 	</body>
 
