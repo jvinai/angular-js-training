@@ -1,18 +1,15 @@
-angular.module("myApp").controller('myCtrl', function($scope, fartService) {
-	console.log("hello from controller!");
-
-	fartService.getFarts().then(
-		function success(newFartList) {
-			$scope.farts = newFartList.data;
+angular.module("myApp").controller('myCtrl', function($scope, thoughtService) {
+	thoughtService.getThoughts().then(
+		function success(newThoughtList) {
+			$scope.thoughts = newThoughtList.data;
 		}
 	);
 
 	this.doSubmit = function() {
-		console.log("thing " , $scope.newFart);
-		fartService.postFart($scope.newFart).then(
-			function success(newFartList) {
-				$scope.farts = newFartList.data;
-				$scope.newFart = "";
+		thoughtService.postThought($scope.newThought).then(
+			function success(newThoughtList) {
+				$scope.thoughts = newThoughtList.data;
+				$scope.newThought = "";
 			}
 		);
 	}

@@ -5,27 +5,27 @@ var app = express();
 app.use(express.urlencoded()); 
 app.use(express.json());
 
-var farts = [
+var thoughts = [
 		{text: "Being a dog is like living in a house with giants who always want to give you massages."},
 		{text: "What if I have a mental illness but my family has never told me?"}
 	];
 
 app.get('/api', function(req, res) {
-  res.json(farts);
+  res.json(thoughts);
 });
 
-app.post('/api/fart', function(req, res) {
-	if(!req.body.hasOwnProperty('fart')) {
+app.post('/api/thought', function(req, res) {
+	if(!req.body.hasOwnProperty('thought')) {
 	res.statusCode = 400;
 	return res.send('Error 400: Post syntax incorrect.');
 	} 
  
-	var newFart = {
-	    text : req.body.fart
+	var newThought = {
+	    text : req.body.thought
 	  }; 
 	 
-	farts.unshift(newFart);
-	res.json(farts);
+	thoughts.unshift(newThought);
+	res.json(thoughts);
 });
 
 
