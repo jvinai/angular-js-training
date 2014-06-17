@@ -28,6 +28,13 @@ app.post('/api/thought', function(req, res) {
 	res.json(thoughts);
 });
 
+app.get('/api/stats', function(req, res) {
+	var stats = {
+		nrOfThoughts: thoughts.length
+	};
+
+	res.json(stats);
+});
 
 app.use(express.static(path.join(__dirname, "app")));
 
