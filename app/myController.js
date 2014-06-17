@@ -1,16 +1,11 @@
-angular.module("myApp").controller('myCtrl', function($scope, thoughtService) {
-	thoughtService.getThoughts().then(
-		function success(newThoughtList) {
-			$scope.thoughts = newThoughtList.data;
-		}
-	);
+angular.module("myApp").controller('myCtrl', function($scope) {
+
+	$scope.thoughts = [
+		{text: 'Being a dog is like living in a house with giants who always want to give you massages.'},
+		{text: 'What if I have a mental illness but my family has never told me?'}
+	];
 
 	this.doSubmit = function() {
-		thoughtService.postThought($scope.newThought).then(
-			function success(newThoughtList) {
-				$scope.thoughts = newThoughtList.data;
-				$scope.newThought = "";
-			}
-		);
+		console.log("new thought: ", $scope.newThought);
 	}
 });
