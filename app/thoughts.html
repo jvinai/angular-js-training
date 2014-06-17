@@ -1,0 +1,13 @@
+<div ng-controller="myCtrl as myCtrl">
+	<div class="text-center">
+		<div class="jumbotron">
+		  <h2>Deep thoughts<br/> <small>because the world needs to know</small></h2>
+		  <p><input size="60" class="text-center" ng-model="newThought" maxlength="140" type="text"></p>
+		  <p><a class="btn btn-primary btn-lg" role="button" ng-click="myCtrl.doSubmit()">Submit yours!</a></p>
+		  <p><a href="#/stats">stats</a></p>
+		</div>
+	</div>
+	<div class="container text-center">
+		<div class="well well-sm" ng-repeat="thought in thoughts">{{thought.text}}</div>
+	</div>
+</div>

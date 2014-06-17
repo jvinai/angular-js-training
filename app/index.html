@@ -5,23 +5,17 @@
     	<link rel="stylesheet" href="styles/main.css">
 
 		<script src="angular.js"></script>
+		<script src="angular-route.js"></script>
 		<script src="app.js"></script>
 		<script src="thoughtService.js"></script>
+		<script src="statsService.js"></script>
 		<script src="myController.js"></script>
+		<script src="statsController.js"></script>
 
 	</head>
 
-	<body ng-app="myApp" ng-controller="myCtrl as myCtrl">
-		<div class="text-center">
-			<div class="jumbotron">
-			  <h2>Deep thoughts<br/> <small>because the world needs to know</small></h2>
-			  <p><input size="60" class="text-center" ng-model="newThought" maxlength="140" type="text"></p>
-			  <p><a class="btn btn-primary btn-lg" role="button" ng-click="myCtrl.doSubmit()">Submit yours!</a></p>
-			</div>
-		</div>
-		<div class="container text-center">
-			<div class="well well-sm" ng-repeat="thought in thoughts">{{thought.text}}</div>
-		</div>
+	<body ng-app="myApp">
+		<div ng-view></div>
 	</body>
 
 </html>
