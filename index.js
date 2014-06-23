@@ -1,15 +1,10 @@
 var fs = require('fs');
+var phtml = require('./lib/packageHtml.js')
 
 fs.readFile('package.json', {encoding: 'UTF-8'}, function (err, data) {
   var packageJSON = JSON.parse(data);
 
-  function listItem(key, value) {
-    return '<li><strong>' + key + ': </strong>' + value + '</li>';
-  }
-  var html = '<ul>' +
-    listItem('Name', packageJSON.name) +
-    listItem('Version', packageJSON.version) +
-    '</ul>';
+  var html = phtml(packageJSON);
 
   fs.writeFile('./tmp/package.html', html, function (err) {
     if (err) {
