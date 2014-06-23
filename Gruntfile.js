@@ -4,9 +4,11 @@ var phtml = require('./lib/packageHtml.js')
 function packageHtml() {
   var done = this.async();
 
-  var options = this.options();
+  var options = this.options({
+    pretty: true
+  });
 
-  var html = phtml(options.name, options.version);
+  var html = phtml(options.name, options.version, options.pretty);
 
   fs.writeFile(options.file, html, function (err) {
     if (err) {
@@ -27,6 +29,13 @@ module.exports = function(grunt) {
         file: './tmp/package.html',
         name: '<%= package.name %>',
         version: '<%= package.version %>'
+      },
+      dev: {
+      },
+      dist: {
+        options: {
+          pretty: false
+        }
       }
     },
     htmlangular: {
@@ -38,7 +47,9 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-html-angular-validate');
 
-  grunt.registerTask('html', packageHtml)
-  grunt.registerTask('default', ['html', 'htmlangular']);
+  grunt.registerMultiTask('html', packageHtml);
+
+  grunt.registerTask('default', ['html:dev', 'htmlangular']);
+  grunt.registerTask('dist', ['html:dist']);
 
 };
