@@ -8,10 +8,10 @@
   },
   "author": "Xebia",
   "license": "ISC",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "grunt": "^0.4.5",
+    "grunt-html-angular-validate": "^0.3.0",
     "html": "0.0.7"
   }
 }

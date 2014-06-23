@@ -22,7 +22,17 @@ function packageHtml() {
 
 module.exports = function(grunt) {
 
+  grunt.initConfig({
+    htmlangular: {
+      files: {
+        src: ['tmp/*.html'],
+      },
+    }
+  });
+
+  grunt.loadNpmTasks('grunt-html-angular-validate');
+
   grunt.registerTask('html', packageHtml)
-  grunt.registerTask('default', ['html']);
+  grunt.registerTask('default', ['html', 'htmlangular']);
 
 };
