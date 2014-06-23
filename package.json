@@ -9,6 +9,9 @@
   "author": "Xebia",
   "license": "ISC",
   "dependencies": {
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
     "html": "0.0.7"
   }
 }
