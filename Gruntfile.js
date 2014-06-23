@@ -22,6 +22,7 @@ function packageHtml() {
 
 module.exports = function(grunt) {
 
-  grunt.registerTask('default', packageHtml);
+  grunt.registerTask('html', packageHtml)
+  grunt.registerTask('default', ['html']);
 
 };
