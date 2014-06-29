@@ -27,5 +27,17 @@ describe('the index page', function () {
 		expect(element.all(by.repeater("thought in thoughts")).count()).toBe(initialNumberOfThoughts + 1);
 		expect(element.all(by.repeater("thought in thoughts")).get(0).getText()).toEqual('Who is this Rorschach guy and why does he paint so many pictures of my parents fighting?');
 	});
-	
+
+	describe('when navigating to the stats page', function () {
+
+		it('should be possible to navigate to the stats page', function () {
+			element(by.css('[href="#/stats"]')).click();
+			expect(browser.getCurrentUrl()).toMatch(/stats/);
+		});
+
+		it('should display the correct number of thoughts', function () {
+			expect(element(by.binding('nrOfThoughts')).getText()).toMatch(new RegExp(initialNumberOfThoughts + 1));
+		});
+
+	});
 })
