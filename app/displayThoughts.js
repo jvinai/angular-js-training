@@ -5,8 +5,6 @@ angular.module("myApp")
 			thoughts: '=displayThoughts'
 		},
 		templateUrl: 'displayThoughts.html',
-		link: function(scope, element) {
-
-		}
+		controller: 'displayThoughtsController as c'
 	};
 });
