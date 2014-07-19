@@ -1,4 +1,4 @@
-angular.module("myApp").factory('statsService', function ($http) {
+angular.module("myApp").factory('statsService', function ($http, $scope) {
   return {
     getStats: function () {
       return $http({
