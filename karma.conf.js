@@ -10,7 +10,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine', 'requirejs'],
+    frameworks: ['jasmine'],
 
 
     // list of files / patterns to load in the browser
@@ -21,9 +21,7 @@ module.exports = function(config) {
       'app/*.js',
       'app/**/*.js',
       'test/angular-mocks/angular-mocks.js',
-      'test/spec/**/*.js',
-      'test-main.js',
-      {pattern: 'test/spec/*Spec.js', included: false}
+      'test/spec/**/*.js'
     ],
 
 
@@ -65,7 +63,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['Firefox'],
 
 
     // Continuous Integration mode
