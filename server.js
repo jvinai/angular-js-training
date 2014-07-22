@@ -10,8 +10,16 @@ var thoughts = [
 		{text: "What if I have a mental illness but my family has never told me?"}
 	];
 
+var shouldFail = true;
+
 app.get('/api', function(req, res) {
-  res.json(thoughts);
+  
+  if (shouldFail = !shouldFail) {
+res.statusCode = 500;
+return res.send("Flux capacitor has become unstable");
+  }	else {
+   return res.json(thoughts);
+  }
 });
 
 app.post('/api/thought', function(req, res) {
