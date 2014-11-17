@@ -7,4 +7,7 @@ angular.module("myApp", ['ngRoute'])
 	.otherwise({
 		templateUrl: 'thoughts.html'
 	});
+})
+.config(function($httpProvider) {
+	$httpProvider.interceptors.push('myInterceptor');
 });

@@ -11,10 +11,13 @@
 		<script src="statsService.js"></script>
 		<script src="myController.js"></script>
 		<script src="statsController.js"></script>
+		<script src="myInterceptor.js"></script>
+		<script src="errorController.js"></script>
 
 	</head>
 
 	<body ng-app="myApp">
+		<div ng-controller="errorCtrl" ng-show="error" style="background-color: #FF0000; color: #FFFFFF;"><center>{{error}}</center></div>
 		<div ng-view></div>
 	</body>
 
